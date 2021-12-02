@@ -1,4 +1,4 @@
-import { By, until, WebDriver } from "selenium-webdriver";
+import { By, until, WebDriver,  } from "selenium-webdriver";
 
 const chromedriver = require("chromedriver");
 
