@@ -10,6 +10,8 @@ import {
   const chromedriver = require("chromedriver");
   const geckodriver = require("geckodriver");
   
+  
+
   /** Optional parameters for the page object */
   export interface Options {
     /** if no driver is supplied, we make one */
@@ -67,6 +69,11 @@ import {
       let element = await this.driver.findElement(elementBy);
       await this.driver.wait(until.elementIsVisible(element));
       return element;
+    }
+    async enableMenu(elementBy: By): Promise<void> {
+      const actions = this.driver.actions()
+      let enableMenu = await this.driver.findElement(elementBy)
+      await actions.move({ duration: 5000, origin: enableMenu, x: 10, y: 10 }).perform();
     }
     /**
      * clicks the given element after waiting for it
